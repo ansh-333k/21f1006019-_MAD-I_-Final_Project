@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Users</title>
+		<link rel="stylesheet" href="/static/css/index.css">
+	</head>
+	<body>
+		<header>
+			<h1><b><u>FLASH CARD APPLICATION</u></b></h1>
+		</header>
+		<br><br><br><br>
+		<section>
+			<p><h1>Users:</h1></p>
+			{% if users %}
+			<table border = 2 style="margin-left:auto; margin-right:auto;">
+				<tr>
+					<th>Username</th>
+					<th>Score</th>
+				</tr>
+				{% for user in users %}
+				<tr>
+					<td>{{ user['username'] }}</td>
+					<td>{{ user['score'] }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+			{% else %}
+			No user record found<br>
+			{% endif %}
+			<br><br>
+			<p><h1><button onclick="location='admin_dashboard'">Go Back</button></h1></p>
+			<p><h1><button onclick="location='logout'">Logout</button></h1></p>
+		</section>
+		<footer>
+			<h2><i>by ANSH KUSHWAHA</i></h2>
+			<h4><a href="mailto:21f1006019@student.onlinedegree.iitm.ac.in">21f1006019@student.onlinedegree.iitm.ac.in</a></h4>
+		</footer>
+	</body>
+</html>

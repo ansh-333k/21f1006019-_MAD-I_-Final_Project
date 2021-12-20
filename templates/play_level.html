@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Play: {{ level }}</title>
+		<link rel="stylesheet" href="/static/css/index.css">
+		<script type="text/javascript" src="/static/js/quiz.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1><b><u>FLASH CARD APPLICATION</u></b></h1>
+		</header>
+		<br><br><br><br>
+		<aside style="position: absolute; left: 160px;"><h2>{{ user['username'] }}</h2></aside>
+		<aside style="position: absolute; right: 160px;"><h2>Level: {{ level }}</h2></aside>
+		<section>
+			<br><br>
+			<h3>Select the Synonyms of the the given word from the options given below:</h3>
+			<br><br>
+			<form action="/{{ user.username }}/play/{{ level }}" method="POST" id="quiz">
+				{% for i in range(10) %}
+				<div id="question_{{ i + 1 }}">
+					<p><h2>{{ quiz[i][0] }}</h2></p>
+					<p><h3><input type="radio" name="{{ quiz[i][0] }}" value="{{ quiz[i][1] }}" />
+					<label>{{ quiz[i][1] }}</label></h3></p>
+					<p><h3><input type="radio" name="{{ quiz[i][0] }}" value="{{ quiz[i][2] }}" />
+					<label>{{ quiz[i][2] }}</label></h3></p>
+					<p><h3><input type="radio" name="{{ quiz[i][0] }}" value="{{ quiz[i][3] }}" />
+					<label>{{ quiz[i][3] }}</label></h3></p>
+					<p><h3><input type="radio" name="{{ quiz[i][0] }}" value="{{ quiz[i][4] }}" />
+					<label>{{ quiz[i][4] }}</label></h3></p>
+					{% if i < 9 %}
+					<p><h3><input type="button" value="Next" formmethod="GET" onclick="show({{ i }} + 1)"></h3></p>
+					{% elif i == 9 %}
+					<p><h3><input type="submit" value = "Submit"></h3></p>
+					{% endif %}
+				</div>
+				{% endfor %}
+			</form>
+			<br><br>
+			<p><h1><button onclick="location='/{{ user.username }}/play'">Go Back</button></h1></p>
+			<p><h1><button onclick="location='/{{ user.username }}/dashboard'">Back to Dashboard</button></h1></p>
+			<p><h1><button onclick="location='/logout'">Logout</button></h1></p>
+		</section>
+		<footer>
+			<h2><i>by ANSH KUSHWAHA</i></h2>
+			<h4><a href="mailto:21f1006019@student.onlinedegree.iitm.ac.in">21f1006019@student.onlinedegree.iitm.ac.in</a></h4>
+		</footer>
+	</body>
+</html>

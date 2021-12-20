@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>User Login</title>
+		<link rel="stylesheet" href="static/css/index.css">
+	</head>
+	<body>
+		<header>
+			<h1><b><u>FLASH CARD APPLICATION</u></b></h1>
+		</header>
+		<br><br><br><br>
+		<section>
+			<form action="/user_login" method="POST">
+				<div>
+					<p><h1><label for="username">Username:</label></h1></p>
+					<p>
+						It contains at least 4 characters and at most 16 characters.<br>
+						It must be unique.<br>
+					</p>
+					<p><h1><input type="text" name="username" id="username" required minlength="4" maxlength="16"/></h1></p>
+				</div>
+				<div>
+					<p><h1><label for="password">Password:</label></h1></p>
+					<p>
+						It contains at least 4 characters and at most 16 characters.<br>
+						It contains at least one digit.<br>
+						It contains at least one upper case alphabet.<br>
+						It contains at least one lower case alphabet.<br>
+						It contains at least one special character.<br>
+					</p>
+					<p><h1><input type="password" name="password" id="password" required minlength="4" maxlength="16" pattern="(?=^.{4,16}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"/></h1></p>
+				</div>
+				<div>
+					<p><h1><input type="submit" value = "Submit"></h1></p>
+				</div>
+			</form>
+			<p><h1><button onclick="location='/'">Go Back</button></h1></p>
+		</section>
+		{% with temp = get_flashed_messages() %}
+		{% if temp %}
+		{{ temp[0] }}
+		{% endif %}
+		{% endwith %}
+		<footer>
+			<h2><i>by ANSH KUSHWAHA</i></h2>
+			<h4><a href="mailto:21f1006019@student.onlinedegree.iitm.ac.in">21f1006019@student.onlinedegree.iitm.ac.in</a></h4>
+		</footer>
+	</body>
+</html>

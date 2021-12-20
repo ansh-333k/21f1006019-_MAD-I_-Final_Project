@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>User Dashboard</title>
+		<link rel="stylesheet" href="/static/css/index.css">
+	</head>
+	<body>
+		<header>
+			<h1><b><u>FLASH CARD APPLICATION</u></b></h1>
+		</header>
+		<br><br><br><br>
+		<aside style="position: fixed; left: 160px;"><h2>Hi ... {{ user['username'] }}</h2></aside>
+		<aside style="position: fixed; right: 160px;"><h2>Score: {{ user['score'] }}</h2></aside>
+		<section>
+			<p><h2>Wanna Play a Game ...</h2></p>
+			<p><h1><button onclick="location='/{{ user.username }}/play'">Lets Go ...</button></h1></p>
+			<br><br>
+			<p><h1><button onclick="location='/logout'">Logout</button></h1></p>
+		</section>
+		<footer>
+			<h2><i>by ANSH KUSHWAHA</i></h2>
+			<h4><a href="mailto:21f1006019@student.onlinedegree.iitm.ac.in">21f1006019@student.onlinedegree.iitm.ac.in</a></h4>
+		</footer>
+	</body>
+</html>
